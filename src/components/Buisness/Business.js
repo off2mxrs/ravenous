@@ -1,4 +1,5 @@
 import React from 'react'
+import './Buisness.css'
 
 const business = {
   imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
