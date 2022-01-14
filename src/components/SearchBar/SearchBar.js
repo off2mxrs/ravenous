@@ -1,6 +1,8 @@
 import React from 'react'
 import './SearchBar.css'
 
+//Yelp Api sort_by parameters
+//https://www.yelp.com/developers/documentation/v3/business_search
 const sortByOptions = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
@@ -20,10 +22,11 @@ class SearchBar extends React.Component {
     }
 
     render() {
+      return (
         <div className="SearchBar">
     <div className="SearchBar-sort-options">
         <ul>
-        {renderSortByOptions()}
+        {this.renderSortByOptions()}
         </ul>
     </div>
     <div className="SearchBar-fields">
@@ -34,6 +37,7 @@ class SearchBar extends React.Component {
         <a>Let's Go</a>
     </div>
     </div>
+    )
     }
 }
 
