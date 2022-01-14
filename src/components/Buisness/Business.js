@@ -1,5 +1,5 @@
 import React from 'react'
-import './Buisness.css'
+import './Business.css'
 
 const business = {
   imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
@@ -18,7 +18,7 @@ class Business extends React.Component {
         return(
 
         
-        <div className="Business">
+    <div className="Business">
     <div className="image-container">
         <img src={business.imageSrc} alt=''/>
     </div>
