@@ -26,6 +26,7 @@ class App extends React.Component {
       <div className="App">
         <h1>ravenous</h1>
         <SearchBar />
+        {/* Pass business prop in */}
         <BusinessList businesses={businesses}/>
       </div>
     )
