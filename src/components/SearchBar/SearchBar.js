@@ -4,15 +4,17 @@ import './SearchBar.css'
 class SearchBar extends React.Component {
     constructor(props){
         super(props)
+
         this.state = {
             term: '',
             location: '',
             sortBy:'best_match',
                      }
+
         // bind both methods to the current value of this
-        this.handleTermChange.bind(this)
-        this.handleLocationChange.bind(this)
-        this.handleSearch.bind(this)
+        this.handleTermChange = this.handleTermChange.bind(this)
+        this.handleLocationChange = this.handleLocationChange.bind(this)
+        this.handleSearch = this.handleSearch.bind(this)
 
         //Yelp Api sort_by parameters
     //https://www.yelp.com/developers/documentation/v3/business_search
@@ -27,7 +29,7 @@ class SearchBar extends React.Component {
 
     /// returns the current CSS class for a sorting option.
     getSortByClass(sortByOption) {
-        if (this.sortBy === sortByOption) {
+        if (this.state.sortBy === sortByOption) {
             return 'active'
         } else {
             return ''
@@ -35,7 +37,7 @@ class SearchBar extends React.Component {
     }
 ////////// HANDLES //////////////////////////////////////////////////////////////////
     handleSortByChange(sortByOption) {
-        this.setState(this.sortBy = {sortByOption})
+        this.setState({sortBy: sortByOption})
     }
 
     handleTermChange(event) {
@@ -49,7 +51,7 @@ class SearchBar extends React.Component {
     }
 
     handleSearch(event) {
-        this.searchYelp(this.term, this.location, this.sortBy)
+        this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy)
         event.preventDefault()
     }
 /// HANDLES END //////////////////////////////////////////////////////////////////
@@ -63,21 +65,20 @@ class SearchBar extends React.Component {
         return Object.keys(this.sortByOptions).map(sortByOption => {
             let sortByOptionValue = this.sortByOptions[sortByOption]
 
-            return <li ///This will conditionally style each sort by option, displaying to the user which sorting option is currently selected.
+            return (<li ///This will conditionally style each sort by option, displaying to the user which sorting option is currently selected.
                      className={this.getSortByClass(sortByOptionValue)}
                      /// bind to the current value of this but also bind the current sortByOptionValue as the first argument to the method call, ensuring the method is called with the appropriate value when clicked.
                      onClick={this.handleSortByChange.bind(this, sortByOptionValue)}
                      key={sortByOptionValue}
                    >
                      {sortByOption}
-                   </li>
+                   </li>)
         })
     }
 
     render() {
       return (
         <div className="SearchBar">
-            {this.searchYelp}
     <div className="SearchBar-sort-options">
         <ul>
         {this.renderSortByOptions()}
@@ -87,8 +88,8 @@ class SearchBar extends React.Component {
         <input onChange={this.handleTermChange} placeholder="Search Businesses" />
         <input onChange={this.handleLocationChange} placeholder="Where?" />
     </div>
-    <div className="SearchBar-submit" onClick={this.handleSearch}>
-        <a>Let's Go</a>
+    <div className="SearchBar-submit">
+        <a onClick={this.handleSearch}>Let's Go</a>
     </div>
     </div>
     )

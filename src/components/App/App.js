@@ -29,8 +29,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>ravenous</h1>
-        <SearchBar />
-        {/* Pass business prop in */}
+        {/* Pass business and Yelp prop in */}
+        <SearchBar searchYelp={this.searchYelp} />
         <BusinessList businesses={businesses}/>
       </div>
     )
