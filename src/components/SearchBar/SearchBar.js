@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
         // bind both methods to the current value of this
         this.handleTermChange.bind(this)
         this.handleLocationChange.bind(this)
+        this.handleSearch.bind(this)
 
         //Yelp Api sort_by parameters
     //https://www.yelp.com/developers/documentation/v3/business_search
@@ -46,6 +47,11 @@ class SearchBar extends React.Component {
         //the state of each input element should be updated to reflect the text typed into the respective input element.
         this.setState({term: event.target.value})
     }
+
+    handleSearch(event) {
+        this.searchYelp(this.term, this.location, this.sortBy)
+        event.preventDefault()
+    }
 /// HANDLES END //////////////////////////////////////////////////////////////////
 
 
@@ -71,6 +77,7 @@ class SearchBar extends React.Component {
     render() {
       return (
         <div className="SearchBar">
+            {this.searchYelp}
     <div className="SearchBar-sort-options">
         <ul>
         {this.renderSortByOptions()}
@@ -80,7 +87,7 @@ class SearchBar extends React.Component {
         <input onChange={this.handleTermChange} placeholder="Search Businesses" />
         <input onChange={this.handleLocationChange} placeholder="Where?" />
     </div>
-    <div className="SearchBar-submit">
+    <div className="SearchBar-submit" onClick={this.handleSearch}>
         <a>Let's Go</a>
     </div>
     </div>
