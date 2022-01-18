@@ -15,6 +15,7 @@ class SearchBar extends React.Component {
         this.handleTermChange = this.handleTermChange.bind(this)
         this.handleLocationChange = this.handleLocationChange.bind(this)
         this.handleSearch = this.handleSearch.bind(this)
+        this.handleSortByChange = this.handleSortByChange.bind(this);
 
         //Yelp Api sort_by parameters
     //https://www.yelp.com/developers/documentation/v3/business_search
