@@ -48,7 +48,7 @@ class SearchBar extends React.Component {
 
     handleLocationChange(event) {
         //the state of each input element should be updated to reflect the text typed into the respective input element.
-        this.setState({term: event.target.value})
+        this.setState({location: event.target.value})
     }
 
     handleSearch(event) {
