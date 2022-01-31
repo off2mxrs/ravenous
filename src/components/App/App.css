@@ -42,3 +42,8 @@ h1 {
   font-size: 1.8rem;
   color: #fff;
 }
+
+a {
+  color: blue;
+  font-weight: bold;
+}

@@ -23,6 +23,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <p>In your own browser, visit <a href="https://cors-anywhere.herokuapp.com/corsdemo">HERE</a> and click “Request temporary access to the demo server”</p>
+        <p>*App currently crashes if both search bars aren't used***</p>
+        
         <h1>ravenous</h1>
         {/* Pass business and Yelp prop in */}
         <SearchBar searchYelp={this.searchYelp} />
